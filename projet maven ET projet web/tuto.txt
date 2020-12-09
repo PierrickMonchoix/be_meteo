@@ -1,0 +1,7 @@
+lancer le site:   \projet_web\site\index.html
+
+
+package maven important : projet_maven\sse-examples\sse-helloworld\src\main\java\fr\mickaelbaron\helloworldserversentevents
+	dans helloworldserversentevents\modele   il y a ma DOA et mes donnees
+	les 2 classes vraiment utiles coté serveur sont: HelloWorldSseResource.java (les path les get etc...)
+						         HelloWorldServerSetEventsLauncher.java   (run ce .java pour lancer le serveur)

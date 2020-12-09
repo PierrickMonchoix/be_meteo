@@ -1,0 +1,97 @@
+<!-- 
+    les balise peuvent porter n'import quel nom, mais certains nom apportend des trucs,
+    ex: p (paragraphe fait qu'on ira  ala ligne apres 
+
+    astuce rapidité : ecrire le debut du nom de la baalise (sans <) puis faire entrer
+
+    class sert a specifier, personnaliser une balise
+    <a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_BLANCK">  _Blanck : ouvrir new page
+
+    il peut y avoir  plusieurs class mais 1 seul id
+
+    -->
+
+
+<!DOCTYPE html> 
+<html>
+<head>  <!-- interne au site mais invisible (si non presised) -->
+    
+    <title> 
+        Titre du site 
+    </title>   <!-- Titre du site ( de l'onglet ) -->
+    <meta charset="utf-8"> <!-- charset est l'attribut de la balise -->
+    
+    <link rel="stylesheet" type="text/css" href="css/styles.css"> <!-- rel = type de relation , type  (un texte css)-->
+    <script src = "js/app.js"></script>
+    <!-- <script> alert("ci"); </script> -->
+</head>
+
+<body> <!-- contenu visible-->
+    <!-- entete -->
+    <header>
+        <p id = "id_test">
+            Station Meteo de l'ENSMA
+        </p>
+
+        <img src="img/meteo.jpg"  width="350" height="180">
+    </header>
+
+    <!-- menu navigation -->
+    <nav class = "menu_nav">  <!--balise navigation-->
+        <ul>
+            <li class = "btn" id = "btn_test">
+                <a href="#">
+                    Cliquez moi!
+                </a>
+            </li>
+            <li class = "btn">
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+            <li class = "btn">
+                <a href="historique.html">
+                    Historique
+                </a>
+            </li>
+        </ul>
+    </nav> 
+
+    <p id = "valeur_temperature">
+        ceci est la temperature du jour
+    </p>
+
+    <!-- balise quelquonque -->
+    <div id="content">
+        <div class="left_box" id = id_leftbox>
+            <h2 id = "texte_temps">
+                Données du jour: il fait super beau
+            </h2>
+        </div>
+        <div class="right_box">
+            <h2>
+                Video de presentation:
+            </h2>
+            <iframe src="http://www.youtube.com/embed/zQGFpFX2Bhc" width="500" height="300" frameborder="0"></iframe>
+        </div>
+    </div>
+    
+
+
+
+    <!-- bas de bage -->
+    <footer> 
+        <p>
+            Created by "La meilleur option" 
+        </p>
+    </footer>
+
+    <!-- scrip java scrip qui va se lacer apres charging tout le body -->
+
+    
+</body>
+
+
+</html>   
+
+

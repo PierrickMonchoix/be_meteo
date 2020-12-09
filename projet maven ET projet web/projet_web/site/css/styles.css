@@ -1,0 +1,58 @@
+/* https://www.code-couleur.com/  pour tous les codes */
+/* prend tjr le dernier style en question */
+
+
+p.para2{   /* toutes les balises p dont e nom est para2 seront de ce stryle   */
+    color: red;
+    background-color: blue;
+}
+
+p.para1{
+    color: #775522; 
+    font-size: 30px;
+    padding-left: 50px;
+}
+
+body{  /* toutes les balises body (meme si normalement 1 seule) seront de ce style */
+    background-color: wheat;
+}
+
+nav.menu_nav ul li.btn{
+    list-style-type: none;
+    display: inline-block;
+}
+
+
+nav.menu_nav ul li.btn a{
+    color: blue;
+    background-color: chocolate;
+    text-decoration: none;
+    padding: 10px;
+    font-size: medium;
+}
+
+
+nav.menu_nav ul li.btn:hover a{   /* idem avant mais dans le cas de vurvol curseur   */
+    background-color: white;
+    transition: 0.2s all;
+}
+
+footer{
+    background-color: turquoise;
+}
+
+/* toute les div de div content */
+div#content div{ 
+    display: inline-block;
+    width: 40% ;
+    vertical-align: top;
+    margin: 10px;
+}
+
+div#content div.left_box{
+    background-color: tomato;
+}
+
+div#content div.right_box{
+    background-color: turquoise;
+}
