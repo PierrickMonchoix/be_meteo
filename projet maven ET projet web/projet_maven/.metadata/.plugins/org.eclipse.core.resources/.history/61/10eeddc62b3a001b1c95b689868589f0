@@ -1,0 +1,19 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique;
+
+public abstract class GrandeurPhysique {  // TODO c'est comme ca que j'ai organiser ma classe des grandeurs physiques (Temperature ...) (le toString est deja fait)
+	
+	protected double valeur;
+	
+	public double getValeur() {
+		return valeur;
+	}
+	
+	public void setValeur(double _valeur) {
+		valeur = _valeur;
+	}
+	
+	@Override
+	public String toString() {
+		return( this.getClass().getSimpleName() + " : " + String.valueOf(valeur));
+	}
+}

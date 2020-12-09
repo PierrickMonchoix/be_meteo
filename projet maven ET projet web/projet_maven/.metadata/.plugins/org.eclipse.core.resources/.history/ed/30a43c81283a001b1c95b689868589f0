@@ -1,0 +1,7 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.daos;
+
+public interface IDao {
+	
+	public static IDao getInstance();
+
+}

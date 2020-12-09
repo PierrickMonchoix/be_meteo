@@ -1,0 +1,34 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.daos;
+
+import java.util.logging.Logger;
+
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique.EGrandeurPhysique;
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique.GrandeurPhysique;
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.type_database.ConnexionXml;
+
+public class DaoSql implements IDao {
+
+	public final static Logger LOGGER =  Logger.getLogger(DaoSql.class.getName());
+	
+	private static DaoSql instance;
+
+    
+    
+    private DaoSql() {
+    	// TODO toutes les donnes necessaires a instancier 1 unique fois (ressemble a DaoXml)
+    };
+    
+    public static DaoSql getInstance() {
+    	if (instance == null) {
+    		instance = new DaoSql();
+    	}
+    	return instance;
+    }
+	
+	@Override
+	public GrandeurPhysique findGrandeurByDate(EGrandeurPhysique _grandeur, String _date) {
+		// TODO corps de la methode de recuperation des donnes SQL
+		return null;
+	}
+
+}

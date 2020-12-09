@@ -1,0 +1,38 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.daos.Dao;
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique.*;
+
+/*
+ * Site source cours DAO:
+ * 
+ * https://cyrille-herby.developpez.com/tutoriels/java/mapper-sa-base-donnees-avec-pattern-dao/#LI
+ * 
+ */
+
+public class AppTestDao {
+	
+    public static void main(String[] args) {
+        Dao dao = Dao.getInstance();
+         
+        Temperature t = (Temperature) dao.findGrandeurByDate(EGrandeurPhysique.TEMPERATURE, "03/12/20");
+        System.out.println(t);
+        
+        List<GrandeurPhysiqueJournaliere> liste = dao.findHistorique(EGrandeurPhysique.TEMPERATURE);
+        
+        System.out.println(liste);
+        
+    	
+        
+    }
+}
+
+

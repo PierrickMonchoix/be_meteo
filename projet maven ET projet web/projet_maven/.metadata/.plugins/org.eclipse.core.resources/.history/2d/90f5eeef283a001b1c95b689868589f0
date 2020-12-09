@@ -1,0 +1,191 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.daos;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Logger;
+
+import org.jdom.Element;
+
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique.*;
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.type_database.ConnexionXml;
+
+public class DAO { 
+	
+	public final static Logger LOGGER =  Logger.getLogger(Dao.class.getName());
+	
+	private static Dao instance;
+
+    public ConnexionXml connect;
+    
+    private DAO() {
+    	connect = ConnexionXml.getInstance("src\\db_meteo.xml");
+    };
+    
+    public static Dao getInstance() {
+    	if (instance == null) {
+    		instance = new Dao();
+    	}
+    	return instance;
+    }
+    
+    
+    public GrandeurPhysique findGrandeurByDate( EGrandeurPhysique _grandeur ,  String _date) {
+    	List<Element> list_ = connect.getRacine().getChildren("meteo");
+    	
+    	for(Element element_ : list_) {
+    		if ( element_.getChildText("date").equals(_date) ) {
+    			String _stringValue;
+    			switch (_grandeur) {
+				case TEMPERATURE:
+					_stringValue = element_.getChildText("temperature");
+					return new Temperature(_stringValue);
+				case PRESSION:
+					_stringValue = element_.getChildText("pression");
+					return new Temperature(_stringValue);
+				default:
+					break;
+				}
+    		}
+    	}
+    	
+    	LOGGER.info("Jour non trouve");
+    	
+    	
+		return null;
+    }
+    
+    public List<GrandeurPhysiqueJournaliere> findHistorique(EGrandeurPhysique _eGrandeurPhysique){
+    	List<GrandeurPhysiqueJournaliere> listeResultat_ = new ArrayList<GrandeurPhysiqueJournaliere>();
+    	GrandeurPhysique valeur_ ;
+    	String date_;
+    	String stringValeur_;
+    	try {
+			List<Element> listDay_ = connect.getRacine().getChildren("meteo");
+			
+			for(Element day_ : listDay_) {
+				switch (_eGrandeurPhysique) {
+				case TEMPERATURE:
+					stringValeur_ = day_.getChildText("temperature");  // comme si new
+					valeur_ = new Temperature(stringValeur_);
+					date_ = day_.getChildText("date");
+					listeResultat_.add( new GrandeurPhysiqueJournaliere(valeur_,date_)   );
+					break;
+				case PRESSION:
+					stringValeur_ = day_.getChildText("temperature");  // comme si new
+					valeur_ = new Pression(stringValeur_);
+					date_ = day_.getChildText("date");
+					listeResultat_.add( new GrandeurPhysiqueJournaliere(valeur_,date_)   );
+					break;
+				default:
+					LOGGER.info("erreur 1");
+					break;
+				}
+			}
+			
+			return listeResultat_;
+    	
+    	}
+    	catch (Exception e) {
+			LOGGER.info("erreur 2");
+		}
+    	return null;
+    }
+    
+    
+
+    
+    public List<GrandeurPhysique> findHistory(EGrandeurPhysique _eGrandeurPhysique){
+    	String stringValeur_;
+    	GrandeurPhysique valeur_;
+    	List<GrandeurPhysique> listGrandeurPhysiques_ = new ArrayList<GrandeurPhysique>();
+    	try {
+			List<Element> listDay_ = connect.getRacine().getChildren();
+			
+			for(Element day_ : listDay_) {
+				
+				switch (_eGrandeurPhysique) {
+				case TEMPERATURE:
+					stringValeur_ = day_.getChildText("temperature");
+					valeur_ = new Temperature(stringValeur_);
+					listGrandeurPhysiques_.add(valeur_);
+					break;
+				case PRESSION:
+					stringValeur_ = day_.getChildText("pression");
+					valeur_ = new Pression(stringValeur_);
+					listGrandeurPhysiques_.add(valeur_);
+					break;
+				default:
+					LOGGER.info("erreur 1");
+					break;
+				}
+			}
+			
+			return listGrandeurPhysiques_;
+    	
+    	}
+    	catch (Exception e) {
+			LOGGER.info("erreur 2");
+		}
+		return null;
+    	
+    }
+    
+    /*
+	Element ajd = (Element) connect.getRacine().getChildren().get(0);  // toutes les balises '_date'
+	
+	Element temp = (Element) ajd.getChildren().get(0);
+	
+	String valeurString_ = temp.getText();
+	
+	LOGGER.info("here: " + valeurString_);  //ok
+	
+	}*/
+    
+ /*   public List<GrandeurPhysique> findHistory(EGrandeurPhysique grandeur){
+    	switch (grandeur) {
+		case TEMPERATURE:
+			try {
+				Element ajd = (Element) connect.getRacine().getChildren().get(0);  // toutes les balises '_date'
+				
+				temp = 
+				
+				Element node = (Element) list_.get(0).getContent();
+				
+				String valeurString_ = node.getChildText("temperature");
+				
+				return new Temperature( valeurString_ );
+				
+				}
+				catch (Exception e) {
+					LOGGER.info("Jour non trouve");
+				}
+				
+			break;
+		case PRESSION:
+			try {
+				List list_ = connect.getRacine().getChildren(_date);
+				
+				Element node = (Element) list_.get(0);
+				
+				String valeurString_ = node.getChildText("pression");
+				
+				return new Pression( valeurString_ );
+			
+			}
+			catch (Exception e) {
+				LOGGER.info("Jour non trouve");
+			}
+			
+			break;
+
+		default:
+			break;
+		}
+		return null;
+    }
+    
+    */
+    
+}
+

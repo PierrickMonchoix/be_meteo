@@ -1,0 +1,16 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.daos;
+
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique.EGrandeurPhysique;
+import fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique.GrandeurPhysique;
+
+public class DaoSql implements IDao {
+
+	
+	
+	@Override
+	public GrandeurPhysique findGrandeurByDate(EGrandeurPhysique _grandeur, String _date) {
+		// TODO 
+		return null;
+	}
+
+}

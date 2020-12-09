@@ -1,0 +1,30 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique;
+
+
+public class GrandeurPhysiqueJournaliere {
+	private String date;
+	private GrandeurPhysique grandeurPhysique;
+	
+	
+	public GrandeurPhysiqueJournaliere(GrandeurPhysique _grandeurPhysique,String _date ) {
+		date = _date;
+		grandeurPhysique = _grandeurPhysique;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+	
+	public GrandeurPhysique getGrandeurPhysique() {
+		return grandeurPhysique;
+	}
+	
+	@Override
+	public String toString() {
+		return("date: " + date.toString() + "  valeur: " + grandeurPhysique.toString());
+	}
+	
+	
+}
+
+

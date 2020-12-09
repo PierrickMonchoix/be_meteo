@@ -1,0 +1,5 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.grandeur_physique;
+
+public enum EGrandeurPhysique {
+	TEMPERATURE,PRESSION
+}

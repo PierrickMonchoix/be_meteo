@@ -1,0 +1,12 @@
+package fr.mickaelbaron.helloworldserversentevents.modele.dao_meteo.daos;
+
+public class FactoryDao {
+	
+	private FactoryDao() {
+		// prive, cette classe ne peut pas etre instanciee
+	}
+	
+	public Static
+	
+
+}
