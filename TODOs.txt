@@ -1,0 +1,4 @@
+/sse-helloworld/src/main/java/fr/mickaelbaron/helloworldserversentevents/modele/dao_meteo/daos/DaoSql.java
+/sse-helloworld/src/main/java/fr/mickaelbaron/helloworldserversentevents/modele/dao_meteo/grandeur_physique/EGrandeurPhysique.java
+/sse-helloworld/src/main/java/fr/mickaelbaron/helloworldserversentevents/modele/dao_meteo/grandeur_physique/GrandeurPhysique.java
+/sse-helloworld/src/main/java/fr/mickaelbaron/helloworldserversentevents/modele/dao_meteo/grandeur_physique/GrandeurPhysiqueJournaliere.java
